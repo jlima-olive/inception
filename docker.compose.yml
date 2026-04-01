@@ -70,7 +70,6 @@ volumes:
     driver_opts:
       device: ./data/wordpress
       o : bind
-      #o: bind???
       type : none
 
 # the networks part
