@@ -1,31 +1,28 @@
-WP_DATA = /home/data/wordpress
-DB_DATA = /home/data/mariadb
+WP_DATA = ./data/wordpress
+DB_DATA = ./data/mariadb
 
-# default target
 all: up
 
-# start the biulding process
-# start the containers in the background and leaves them running
 up: build
 	mkdir -p $(WP_DATA)
 	mkdir -p $(DB_DATA)
-	docker-compose -f ./docker-compose.yml up -d
+	docker compose up -d
 
 # stop the containers
 down:
-	docker-compose -f ./docker-compose.yml down
+	docker compose down
 
 # stop the containers
 stop:
-	docker-compose -f ./docker-compose.yml stop
+	docker compose stop
 
 # start the containers
 start:
-	docker-compose -f ./docker-compose.yml start
+	docker compose start
 
 # build the containers
 build:
-	docker-compose -f ./docker-compose.yml build
+	docker compose build
 
 # clean the containers
 # stop all running containers and remove them.
