@@ -4,8 +4,6 @@ DB_DATA = ./data/mariadb
 all: up
 
 up: build
-	mkdir -p $(WP_DATA)
-	mkdir -p $(DB_DATA)
 	docker compose up -d
 
 # stop the containers
@@ -22,6 +20,8 @@ start:
 
 # build the containers
 build:
+	mkdir -p $(WP_DATA)
+	mkdir -p $(DB_DATA)
 	docker compose build
 
 # clean the containers
