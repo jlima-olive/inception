@@ -3,7 +3,7 @@ sudo apt upgrade -y
 sudo apt install curl -y
 sudo apt install code -y
 sudo apt install snap -y
-sudo apt install code -y
+sudo snap install --classic code -y
 sudo apt install zsh -y
 sudo apt install git -y
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
