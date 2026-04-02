@@ -1,11 +1,11 @@
 sudo apt update
 sudo apt upgrade
-sudo apt curl
-sudo apt code
-sudo apt snap
-sudo apt code
-sudo apt zsh
-sudo apt git
+sudo apt install curl
+sudo apt install code
+sudo apt install snap
+sudo apt install code
+sudo apt install zsh
+sudo apt install git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Add Docker's official GPG key:
