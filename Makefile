@@ -1,48 +1,46 @@
-WP_DATA = ./data/wordpress
-DB_DATA = ./data/mariadb
+NAME = inception
+COMPOSE = docker compose -f docker-compose.yml
+LOGIN = $${USER}
+
+DATA_PATH = /home/$(LOGIN)/data
+DB_PATH = $(DATA_PATH)/mariadb
+WP_PATH = $(DATA_PATH)/wordpress
 
 all: up
 
-up: build
-	docker compose up -d
+up: create_dirs
+	$(COMPOSE) up --build
 
-# stop the containers
 down:
-	docker compose down
+	$(COMPOSE) down
 
-# stop the containers
-stop:
-	docker compose stop
-
-# start the containers
 start:
-	docker compose start
+	$(COMPOSE) start
 
-# build the containers
+stop:
+	$(COMPOSE) stop
+
+restart: down up
+
 build:
-	mkdir -p $(WP_DATA)
-	mkdir -p $(DB_DATA)
-	docker compose build
+	$(COMPOSE) build
 
-# clean the containers
-# stop all running containers and remove them.
-# remove all images, volumes and networks.
-# remove the wordpress and mariadb data directories.
-# the (|| true) is used to ignore the error if there are no containers running to prevent the make command from stopping.
-clean:
-	docker stop $$(docker ps -qa) || true
-	docker rm $$(docker ps -qa) || true
-	docker rmi -f $$(docker images -qa) || true
-	docker volume rm $$(docker volume ls -q) || true
-	docker network rm $$(docker network ls -q) || true
+logs:
+	$(COMPOSE) logs -f
 
-fclean: clean
-	rm -rf $(WP_DATA) || true
-	rm -rf $(DB_DATA) || true
+ps:
+	$(COMPOSE) ps
 
-# clean and start the containers
-re: fclean all
+create_dirs:
+	mkdir -p $(DB_PATH)
+	mkdir -p $(WP_PATH)
 
-# prune the containers: execute the clean target and remove all containers, images, volumes and networks from the system.
-prune: fclean
-	docker system prune -a --volumes -f
+fclean: down
+	docker stop $$(docker ps | awk 'NR>1 {printf $1 " "}') || true
+	sudo rm -rf $(DB_PATH)/*
+	sudo rm -rf $(WP_PATH)/*
+	docker system prune -a -f --volumes
+
+re: fclean up
+
+.PHONY: all up down start stop restart build logs ps create_dirs fclean re
