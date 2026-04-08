@@ -14,7 +14,6 @@ up: host create_dirs
 
 host: .env
 	(cat /etc/hosts | grep $(DOMAIN)) || (sudo sh -c "echo 127.0.0.1 $(DOMAIN) www.$(DOMAIN) >> /etc/hosts")
-	cd nginx && sed -i "/server_name/c\ \t\tserver_name $(PREVDOMAIN)" nginx.conf
 
 .env:
 	wget https://raw.githubusercontent.com/jlima-olive/inception/refs/heads/main/.env

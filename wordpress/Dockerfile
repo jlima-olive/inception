@@ -24,4 +24,5 @@ RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 9000
 
+# This script prepares WordPress and then starts php-fpm in the foreground
 ENTRYPOINT ["/usr/local/bin/init_wp.sh"]

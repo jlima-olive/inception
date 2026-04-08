@@ -7,7 +7,7 @@ RUN apt-get install -y nginx openssl
 RUN mkdir -p /etc/nginx/ssl
 
 RUN openssl req -x509 -new -noenc -keyout /etc/nginx/ssl/inception.key \
-	-subj /C=PT/L=LX/O=42/OU=42/CN=jlima-so.fr/UID=jlima-so \
+	-subj /C=PT/L=LX/O=42/OU=42/CN=jlima-so.42.fr/UID=jlima-so \
 	-days 365 -out /etc/nginx/ssl/inception.crt
 
 #-subj = gives arguments for the creation of the certificate
