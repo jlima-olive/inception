@@ -44,5 +44,4 @@ fi
 
 echo "Starting MariaDB server..."
 
-# Replace the shell process with mysqld so MariaDB becomes PID 1 inside the container
 exec mysqld --user=mysql --datadir=/var/lib/mysql
