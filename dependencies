@@ -1,9 +1,5 @@
 su - || sudo su -
 
-apt update && apt upgrade -y
-apt install sudo -y
-curl -fsSL https://get.docker.com/ | sh
-apt install curl sudo -y
 curl -fsSL https://get.docker.com/ | sh
 reboot
 
