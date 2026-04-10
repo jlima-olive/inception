@@ -1,5 +1,5 @@
 NAME = inception
-COMPOSE = docker compose -f docker-compose.yml
+COMPOSE = docker compose -f srcs/docker-compose.yml
 
 DATA_PATH = ~/data
 DB_PATH = $(DATA_PATH)/mariadb
@@ -11,11 +11,12 @@ all: up
 up: host create_dirs
 	$(COMPOSE) up --build
 
-host: .env
+host: srcs/.env
 	(cat /etc/hosts | grep $(DOMAIN)) || (sudo sh -c "echo 127.0.0.1 $(DOMAIN) www.$(DOMAIN) >> /etc/hosts")
 
-.env:
-	wget https://raw.githubusercontent.com/jlima-olive/inception/refs/heads/main/.env
+srcs/.env:
+	wget https://raw.githubusercontent.com/jlima-olive/inception/refs/heads/main/.env 
+	mv .env srcs/.env
 
 down:
 	$(COMPOSE) down
