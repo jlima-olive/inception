@@ -1,8 +1,8 @@
-sudo apt install make snap wget curl zsh -y
+sudo apt install make snap wget curl zsh git -y
 
 sudo snap install --classic code
 
-su - || sudo su -
+sudo su -
 
 curl -fsSL https://get.docker.com/ | sh
 reboot
@@ -25,6 +25,7 @@ EOF
 sudo apt update && apt upgrade -y
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 sudo usermod -aG docker $USER
-newgrp docker 
+sudo newgrp docker 
+shutdown
 
 id -nG #to test should appear "docker sudo $USER"

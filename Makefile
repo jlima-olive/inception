@@ -4,7 +4,7 @@ COMPOSE = docker compose -f srcs/docker-compose.yml
 DATA_PATH = ~/data
 DB_PATH = $(DATA_PATH)/mariadb
 WP_PATH = $(DATA_PATH)/wordpress
-DOMAIN = $$(cat .env | grep DOMAIN_NAME | awk -F= '{printf $$2}')
+DOMAIN = $$(cat srcs/.env | grep DOMAIN_NAME | awk -F= '{printf $$2}')
 
 all: up
 

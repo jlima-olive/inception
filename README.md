@@ -89,11 +89,20 @@ Volumes are used to store data that is persistent Data handled by the Docker eng
 
 - Docker doesnt virtualize hardware, it simply runs the operating system of choosing using the hosts kernal making them a lot more lightweight and portable.
 
+### Secrets vs Environment Variables
+
+- Environment variables are set within a file specified by Docker-Compose while Secrets are files imported to the Docker Container and set within a specific directory managed by Docker.
+
+
 ### Docker Network vs Host Network
 
 - A Docker network works in a isolated environment between containers making them a lot more secure then using an external network. 
 
 - The host network on the other hand exposes every service to the outside word making them more prone to security breeches
+
+### Docker Volumes vs Bind Mounts
+
+- Bind mounts depend on the OS of the host machine, while docker volumes are intirely managed by Docker. Docker volumes are a good choice for when you need to back up or migrate Volumes between different OS or different machines.
 
 ---
 
