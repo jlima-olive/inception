@@ -1,4 +1,4 @@
-- This file explains, in clear and simple terms, how an end user or administrator can:
+*This file explains, in clear and simple terms, how an end user or administrator can:*
 
 ## The services provided are:
 
