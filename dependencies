@@ -1,3 +1,5 @@
+sudo apt install make snap wget curl zsh -y
+
 su - || sudo su -
 
 curl -fsSL https://get.docker.com/ | sh
