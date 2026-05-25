@@ -14,7 +14,7 @@
  
 - WordPress is a web content management system. Originally it was meant to be used to managed webblog sites but it has sense evolved into a more refined tool capable of designing and managing administrator functions.
 
-# How to manage and run the project
+# How to run the project
 
 ## make down
 
@@ -24,6 +24,8 @@
    - Networks defined in the networks section of the Compose file.
    - The default network, if one is used.
 
+# How to manage and run the project
+
 ## make stop
 
 * Stops running containers without removing them. They can be started again with docker compose start.
@@ -31,23 +33,6 @@
 ## make start
 
 * Starts existing containers for a service
-
-## make up
-
-* Builds, (re)creates, starts, and attaches to containers for a service.
-* Unless they are already running, this command also starts any linked services.
-
-## make build 
-
-Services are built once and then tagged
-
-## make ps
-
-* Lists containers for a Compose project, with current status and exposed ports.
-
-## make logs
-
-* Displays log output from services
 
 # Webstite
 
